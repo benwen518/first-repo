@@ -678,6 +678,30 @@ public:
     }
 };
 
+int main() {
+    int numSamples = 100;   // 样本数量
+    int numFeatures = 2;    // 特征数量
+    int numClasses = 2;     // 类别数量
+    double minX = 0.0;      // X 坐标最小值
+    double maxX = 10.0;     // X 坐标最大值
+    double minY = 0.0;      // Y 坐标最小值
+    double maxY = 10.0;     // Y 坐标最大值
+
+    // 生成随机数据集
+    std::vector<Point> dataset = generateRandomDataset(numSamples, numFeatures, numClasses, minX, maxX, minY, maxY);
+
+    // 输出数据集
+    for (const auto& point : dataset) {
+        std::cout << "Coordinates: ";
+        for (const auto& coord : point.coordinates) {
+            std::cout << coord << " ";
+        }
+        std::cout << "| Label: " << point.label << std::endl;
+    }
+    
+    
+    return 0;
+}
 // int main() {
 //     // 创建数据集
 //     std::vector<Point> dataset;
@@ -751,29 +775,3 @@ public:
 // }
 
 //可用
-int main() {
-    int numSamples = 100;   // 样本数量
-    int numFeatures = 2;    // 特征数量
-    int numClasses = 2;     // 类别数量
-    double minX = 0.0;      // X 坐标最小值
-    double maxX = 10.0;     // X 坐标最大值
-    double minY = 0.0;      // Y 坐标最小值
-    double maxY = 10.0;     // Y 坐标最大值
-
-    // 生成随机数据集
-    std::vector<Point> dataset = generateRandomDataset(numSamples, numFeatures, numClasses, minX, maxX, minY, maxY);
-
-    // 输出数据集
-    for (const auto& point : dataset) {
-        std::cout << "Coordinates: ";
-        for (const auto& coord : point.coordinates) {
-            std::cout << coord << " ";
-        }
-        std::cout << "| Label: " << point.label << std::endl;
-    }
-    
-
-    return 0;
-}
-
-
